@@ -16,7 +16,7 @@ load_dotenv()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins= ["*"],
+    allow_origins= ["https://simple-portfolio-website-git-main-pranav-pais-projects.vercel.app","https://simple-portfolio-website-mwcbtri8d-pranav-pais-projects.vercel.app","https://simple-portfolio-website-iota.vercel.app"],
     allow_credentials = True,
     allow_methods = ["*"],
     allow_headers = ["*"]
