@@ -1,4 +1,3 @@
 fastapi
 uvicorn
-smtplib
 python-dotenv
