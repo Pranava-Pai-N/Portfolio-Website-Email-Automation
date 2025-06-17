@@ -28,20 +28,20 @@ async def root():
     return {"message":"FASTAPI is running !"}
 
 @app.post("/feedback")
-def send_feedback(Name : str = Form(...),Email : str = Form(...),Feedback : str = Form(...)):
-    subject = f"You have an Message from {Name} !"
+def send_feedback(name : str = Form(...),email : str = Form(...),message : str = Form(...)):
+    subject = f"You have an Message from {name} !"
     msg = EmailMessage()
     msg["subject"] = subject
-    msg["From"] = Email
+    msg["From"] = email
     msg["To"] = os.getenv("MY_EMAIL")
     
     msg.set_content(
-        f"""{Name} visited your website and left a Feedback ! 
-Reply to {Email} at the earliest .You have recieved a new Feedback from {Name} at {formatted_time} Hours on {current_date}
+        f"""{name} visited your website and left a Feedback ! 
+Reply to {email} at the earliest .You have recieved a new Feedback from {name} at {formatted_time} Hours on {current_date}
 The feedback is given below :
         
         
-        {Feedback}
+        {message}
         """
     )
     
