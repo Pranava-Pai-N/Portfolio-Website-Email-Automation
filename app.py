@@ -5,6 +5,10 @@ from email.message import EmailMessage
 from dotenv import load_dotenv
 import os
 from datetime import datetime
+import pytz
+
+
+india = pytz.timezone("Asia/Kolkata")
 
 
 app = FastAPI()
@@ -19,9 +23,9 @@ app.add_middleware(
     
 )
 
-current_time = datetime.now()
+current_time = datetime.now(india)
 formatted_time = current_time.strftime("%H:%M:%S")
-current_date = datetime.now().date().strftime("%d/%m/%Y")
+current_date = datetime.now(india).date().strftime("%d/%m/%Y")
 
 @app.get("/")
 async def root():
