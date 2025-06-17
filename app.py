@@ -41,7 +41,7 @@ Reply to {email} at the earliest .You have recieved a new Feedback from {name} a
 The feedback is given below :
         
         
-        {message}
+{message}
         """
     )
     
