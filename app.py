@@ -23,10 +23,6 @@ app.add_middleware(
     
 )
 
-current_time = datetime.now(india)
-formatted_time = current_time.strftime("%H:%M:%S")
-current_date = datetime.now(india).date().strftime("%d/%m/%Y")
-
 @app.get("/")
 async def root():
     return {"message":"FASTAPI is running !"}
@@ -38,6 +34,11 @@ def send_feedback(name : str = Form(...),email : str = Form(...),message : str =
     msg["subject"] = subject
     msg["From"] = email
     msg["To"] = os.getenv("MY_EMAIL")
+    
+    
+    current_time = datetime.now(india)
+    formatted_time = current_time.strftime("%H:%M:%S")
+    current_date = datetime.now(india).date().strftime("%d/%m/%Y")
     
     msg.set_content(
         f"""{name} visited your website and left a Feedback ! 
